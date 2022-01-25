@@ -1,20 +1,48 @@
 export const AUTH_ACTION_TYPES = {
-  SET_IS_AUTH: 'SET_IS_AUTH',
-  SET_SHOW_LOGIN_FORM: 'SET_SHOW_LOGIN_FORM',
-  SET_USERNAME: 'SET_USERNAME',
+  INIT_AUTH_REQUEST: 'INIT_AUTH_REQUEST',
+  INIT_AUTH_SUCCESS: 'INIT_AUTH_SUCCESS',
+  INIT_AUTH_FAILURE: 'INIT_AUTH_FAILURE',
+
+  SIGN_IN_REQUEST: 'SIGN_IN_REQUEST',
+  SIGN_IN_FAILURE: 'SIGN_IN_FAILURE',
+  SIGN_IN_SUCCESS: 'SIGN_IN_SUCCESS',
+
+  SIGN_OUT_REQUEST: 'SIGN_OUT_REQUEST',
+  SIGN_OUT_FAILURE: 'SIGN_OUT_FAILURE',
+  SIGN_OUT_SUCCESS: 'SIGN_OUT_SUCCESS',
 };
 
 export const AUTH_ACTION_CREATORS = {
-  setIsAuth: isAuth => ({
-    type: AUTH_ACTION_TYPES.SET_IS_AUTH,
-    payload: { isAuth },
+  initAuthRequest: () => ({
+    type: AUTH_ACTION_TYPES.INIT_AUTH_REQUEST,
   }),
-  setShowLoginForm: showLoginForm => ({
-    type: AUTH_ACTION_TYPES.SET_IS_AUTH,
-    payload: { showLoginForm },
-  }),
-  setUsername: username => ({
-    type: AUTH_ACTION_CREATORS.SET_USERNAME,
+  initAuthSuccess: username => ({
+    type: AUTH_ACTION_TYPES.INIT_AUTH_SUCCESS,
     payload: { username },
+  }),
+  initAuthFailure: () => ({
+    type: AUTH_ACTION_TYPES.INIT_AUTH_FAILURE,
+  }),
+  signInRequest: userData => ({
+    type: AUTH_ACTION_TYPES.SIGN_IN_REQUEST,
+    payload: { userData },
+  }),
+  signInSuccess: username => ({
+    type: AUTH_ACTION_TYPES.SIGN_IN_SUCCESS,
+    payload: { username },
+  }),
+  signInFailure: error => ({
+    type: AUTH_ACTION_TYPES.SIGN_IN_FAILURE,
+    payload: { error },
+  }),
+  signOutRequest: () => ({
+    type: AUTH_ACTION_TYPES.SIGN_OUT_REQUEST,
+  }),
+  signOutSuccess: () => ({
+    type: AUTH_ACTION_TYPES.SIGN_OUT_SUCCESS,
+  }),
+  signOutFailure: error => ({
+    type: AUTH_ACTION_TYPES.SIGN_OUT_FAILURE,
+    payload: { error },
   }),
 };
